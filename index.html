@@ -313,6 +313,11 @@
             let groups = {};
 
             items.forEach(m => {
+                // --- INI BARIS YANG DITAMBAHKAN ---
+                // Mencegah baris kosong di Google Sheet terbaca sebagai "Unit Ready Rp 0"
+                if (!m || !m[1] || m[1].toString().trim() === "") return;
+                // ----------------------------------
+
                 const type = m[1];
                 const brand = m[2];
                 const price = m[3];
